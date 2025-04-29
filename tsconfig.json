@@ -21,10 +21,15 @@
     "strictPropertyInitialization": false,
     "typeRoots": [
       "./node_modules/@types"
-    ]
+    ],
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "declarationDir": "./dist/types"
   },
   "exclude": [
     "node_modules",
-    "cdk.out"
+    "cdk.out",
+    "dist"
   ]
 }

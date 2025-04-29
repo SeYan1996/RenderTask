@@ -1,8 +1,38 @@
+# 依赖
+node_modules/
+.npm
+package-lock.json
+
+# 构建输出
+dist/
+build/
 *.js
 !jest.config.js
-*.d.ts
-node_modules
 
-# CDK asset staging directory
-.cdk.staging
-cdk.out
+# 环境变量
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 日志
+logs/
+*.log
+npm-debug.log*
+
+# 测试覆盖率
+coverage/
+
+# CDK
+cdk.out/
+.cdk.staging/
+cdk.context.json
+
+# 操作系统
+.DS_Store
+Thumbs.db
