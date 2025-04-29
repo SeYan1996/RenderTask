@@ -78,22 +78,35 @@
    docker-compose up -d
    ```
 
-3. 设置本地资源
+3. 配置环境变量：
+
+创建 `.env` 文件：
+
+```env
+AWS_REGION=us-east-1
+SQS_QUEUE_URL=your-sqs-queue-url
+S3_BUCKET_NAME=your-s3-bucket-name
+DYNAMODB_TABLE_NAME=your-dynamodb-table-name
+PORT=3000
+WORKER_POLL_INTERVAL=1000
+```
+
+4. 设置本地资源
    ```bash
    npm run setup:local
    ```
 
-4. 启动API服务
+5. 启动API服务
    ```bash
    npm run start:local
    ```
 
-5. 在另一个终端中启动worker服务
+6. 在另一个终端中启动worker服务
    ```bash
    npm run worker
    ```
 
-6. 运行测试用例
+7. 运行测试用例
    ```bash
    npm run test:concurrency
    ```
@@ -149,7 +162,7 @@
    npm run deploy
    ```
 
-4. 清理资源（可选）
+4. 清理资源
    ```bash
    npm run destroy
    ```
@@ -237,47 +250,6 @@ repo-root/
 └── README.md           # 项目说明
 ```
 
-## 快速开始
-
-1. 安装依赖：
-
-```bash
-npm install
-```
-
-2. 配置环境变量：
-
-创建 `.env` 文件：
-
-```env
-AWS_REGION=us-east-1
-SQS_QUEUE_URL=your-sqs-queue-url
-S3_BUCKET_NAME=your-s3-bucket-name
-DYNAMODB_TABLE_NAME=your-dynamodb-table-name
-PORT=3000
-WORKER_POLL_INTERVAL=1000
-```
-
-3. 部署基础设施：
-
-```bash
-npm run deploy
-```
-
-4. 启动服务：
-
-在一个终端中启动 API 服务器：
-
-```bash
-npm run start
-```
-
-在另一个终端中启动 worker：
-
-```bash
-npm run worker
-```
-
 ## API 接口
 
 ### 创建渲染任务
@@ -324,19 +296,6 @@ GET /jobs/{jobId}
 }
 ```
 
-## 测试
-
-运行所有测试：
-
-```bash
-npm test
-```
-
-运行集成测试：
-
-```bash
-npm run test:integration
-```
 
 ## 开发
 
