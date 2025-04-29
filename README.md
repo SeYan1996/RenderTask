@@ -67,46 +67,51 @@
 - AWS CLI（可选）
 
 ### 设置本地环境
-
 1. 安装依赖
    ```bash
    npm install
    ```
 
-2. 启动LocalStack
+2. 构建项目
+   ```bash
+   npm run build
+   ```
+
+3. 启动LocalStack
    ```bash
    docker-compose up -d
    ```
 
-3. 配置环境变量：
+4. 配置环境变量：
 
 创建 `.env` 文件：
 
 ```env
 AWS_REGION=us-east-1
-SQS_QUEUE_URL=your-sqs-queue-url
-S3_BUCKET_NAME=your-s3-bucket-name
-DYNAMODB_TABLE_NAME=your-dynamodb-table-name
-PORT=3000
-WORKER_POLL_INTERVAL=1000
+AWS_ACCESS_KEY_ID=test
+AWS_SECRET_ACCESS_KEY=test
+ENDPOINT_URL=http://localhost:4566
+DYNAMODB_TABLE_NAME=RenderJobsTable
+SQS_QUEUE_URL=http://localhost:4566/000000000000/RenderTaskQueue.fifo
+S3_BUCKET_NAME=render-results-bucket
 ```
 
-4. 设置本地资源
+5. 设置本地资源
    ```bash
    npm run setup:local
    ```
 
-5. 启动API服务
+6. 启动API服务
    ```bash
    npm run start:local
    ```
 
-6. 在另一个终端中启动worker服务
+7. 在另一个终端中启动worker服务
    ```bash
    npm run worker
    ```
 
-7. 运行测试用例
+8. 运行测试用例
    ```bash
    npm run test:concurrency
    ```
